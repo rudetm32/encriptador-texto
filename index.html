@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Encriptador</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <section class="area-text">
+            <div class="logo">
+                <img src="./assets/logo.svg" alt="alura"/>
+            </div>
+            <div class="text">
+                <textarea name="text-area" id="text-area" cols="70" rows="10" placeholder="Ingrese el texto aquí"></textarea>
+            </div>
+        </section>
+
+        <section class="area-draw">
+            <img class="draw" src="./assets/muneco.svg" alt="figura humana"/>
+            <p>Ningún mensaje fue encontrado</p>
+            <p>Ingresar el texto que desees encriptar o desencriptar</p>
+        </section>
+        
+        <section class="area-btn">
+            <div class="text-btn">
+                <img src="./assets/bi_exclamation-circle-fill.svg" alt="aclaración"/>
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
+            <div class="btn-action">
+                <button class="encrypt" id="btn-encrypt">Encriptar</button>
+                <button class="decrypt">Desencriptar</button>
+            </div>
+        </section>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
