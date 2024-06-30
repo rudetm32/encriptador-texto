@@ -1,11 +1,4 @@
-// Llave encriptadora
-const cryptoKey = { 
-    e: "enter", 
-    i: "imes", 
-    a: "ai", 
-    o: "ober", 
-    u: "ufat" 
-};
+const cryptoKey = { e: "enter", i: "imes", a: "ai", o: "ober", u: "ufat" };
 
 const encrypt = (text) => {
     let encryptedText = "";        
@@ -17,24 +10,44 @@ const encrypt = (text) => {
     return encryptedText;
 };
 
-const btnEncrypt = document.getElementById("btn-encrypt");
-
-btnEncrypt.addEventListener("click", () => {
-    const textArea= document.getElementById("text-area");
-    const encryptedText= encrypt(textArea.value);
-    alert(encryptedText);
-});
-
-
 const decrypt = (text) => {
-    let decryptedText = text.split(" ");
-        let result = decryptedText.map(word => {
-        return Object.keys(cryptoKey)
-        .reduce((acc, key) => acc
-        .split(cryptoKey[key])
-        .join(key), word);
-    }).join(" ");
-    return result 
+    let decryptedText = text;
+    for (let key in cryptoKey) {
+        const regex = new RegExp(cryptoKey[key], "g");
+        decryptedText = decryptedText.replace(regex, key);
+    }
+    return decryptedText;
 };
 
+const btnEncrypt = document.getElementById("btn-encrypt");
+const btnDecrypt = document.getElementById("btn-decrypted");
+const textArea = document.getElementById("text-area");
+const messageState = document.getElementById("message-state");
+const resultText = document.getElementById("result-text");
+const copyBtn = document.getElementById("copy-btn");
+const areaDraw = document.querySelector(".area-draw");
+const areaDrawText = areaDraw.querySelectorAll("p");
+
+const hidePreviousText = () => {
+    areaDrawText.forEach(p => p.style.display = 'none');
+};
+
+btnEncrypt.addEventListener("click", () => {
+    const encryptedText = encrypt(textArea.value);
+    hidePreviousText();
+    messageState.textContent = "Mensaje encriptado:";
+    resultText.value = encryptedText;
+});
+
+btnDecrypt.addEventListener("click", () => {
+    const decryptedText = decrypt(textArea.value);
+    hidePreviousText();
+    messageState.textContent = "Mensaje desencriptado:";
+    resultText.value = decryptedText;
+});
+
+copyBtn.addEventListener("click", () => {
+    resultText.select();
+    document.execCommand("copy");
+});
 

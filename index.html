@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         
         <section class="area-text">
             <div class="logo">
@@ -23,6 +23,9 @@
             <img class="draw" src="./assets/muneco.svg" alt="figura humana"/>
             <p>Ningún mensaje fue encontrado</p>
             <p>Ingresar el texto que desees encriptar o desencriptar</p>
+            <div id="message-state"></div>
+            <textarea id="result-text" readonly></textarea>
+            <button id="copy-btn">Copiar</button>
         </section>
         
         <section class="area-btn">
@@ -32,11 +35,11 @@
             </div>
             <div class="btn-action">
                 <button class="encrypt" id="btn-encrypt">Encriptar</button>
-                <button class="decrypt">Desencriptar</button>
+                <button class="decrypt" id="btn-decrypted">Desencriptar</button>
             </div>
         </section>
 
-    </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>
