@@ -6,6 +6,9 @@
     --text-color-light: hsla(210, 9%, 31%, 1); /* Color de texto claro */
     --button-color-active: hsla(213, 84%, 24%, 1); /* Color del botón activo */
     --button-color-disabled: hsla(214, 26%, 88%, 1); /* Color del botón deshabilitado */
+    --button-color-hover: #ffffff; /* Color del texto cuando se hace hover */
+    
+    
     
     /* Fuentes */
     --font-inter: 'Inter', sans-serif; /* Fuente Inter */
@@ -44,7 +47,7 @@ textarea {
     text-align: justify;
     border: none;
     resize: none;
-    width: 100%;
+    width: 70%;
 }
 
 textarea:focus {
@@ -85,7 +88,6 @@ textarea:focus {
     overflow: hidden;
     object-fit: contain;
 }
-
 .area-btn {
     padding-bottom: 60px;
     display: flex;
@@ -105,6 +107,13 @@ textarea:focus {
     color: var(--button-color-active);
     border: 1px solid hsla(213, 84%, 24%, 1);
 }
+
+.encrypt:hover, .decrypt:hover {
+    background: var(--button-color-active);
+    color: var(--button-color-hover); /* Cambia este valor al color que prefieras para el texto en hover */
+    opacity: 0.8;
+}
+
 
 .text-btn {
     display: flex;
